@@ -18,12 +18,12 @@ export class App extends Component {
 
   submitForm = data => {
     const newContact = { ...data, id: nanoid() };
-    this.setState(({ contacts }) => {
-      if (!this.isContactNew(contacts, newContact)) {
-        return { contacts: [...contacts, newContact] };
-      }
+    const { contacts } = this.state;
+    if (this.isContactNew(contacts, newContact)) {
       alert(`${newContact.name} is already in contacts`);
-    });
+      return;
+    }
+    this.setState({ contacts: [...contacts, newContact] });
   };
 
   isContactNew = (contacts, newContact) => {
