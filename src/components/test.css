@@ -1,0 +1,14 @@
+.class {
+border: 1px rgb(16, 5, 36);
+cursor: pointer;
+background-color: rgb(49, 60, 156);
+align-items: baseline;
+text-align: center;
+text-transform: uppercase;
+margin-bottom: 40px;
+padding: 40px;
+flex-direction: column;
+display: flex;
+justify-content: center;
+
+}
