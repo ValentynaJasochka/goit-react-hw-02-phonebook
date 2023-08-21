@@ -52,7 +52,11 @@ export class App extends Component {
       contacts: contacts.filter(contact => contact.id !== contactId),
     }));
   };
-
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.contacts !== prevState.contact) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   render() {
     const { filter } = this.state;
     const contactsList = this.filterByName();
